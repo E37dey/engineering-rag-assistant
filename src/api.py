@@ -1,12 +1,19 @@
 """FastAPI app exposing the RAG pipeline over HTTP.
 
-Run: uvicorn src.api:app --reload
-Docs: http://localhost:8000/docs
+Run: uvicorn src.api:app --port 8010
+UI:   http://localhost:8010          (served from frontend/)
+Docs: http://localhost:8010/docs     (auto-generated Swagger)
 
 The /docs Swagger UI is intentionally a first-class artifact — it's
 the recruiter-facing demo of "this is a real API, not just a script."
+
+The frontend/ directory is mounted at / so the SPA and the API share
+an origin — no CORS plumbing required.
 """
+from pathlib import Path
+
 from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from src.generate import generate_answer
@@ -70,3 +77,15 @@ def query(request: QueryRequest) -> QueryResponse:
             detail=f"Pipeline error: {type(e).__name__}: {e}",
         )
     return QueryResponse(answer=result["answer"], sources=result["sources"])
+
+
+# Mount the static frontend LAST so explicit API routes above are matched
+# first. Guarded by existence so the API still runs in headless setups
+# (CI, eval) where frontend/ may not be present.
+FRONTEND_DIR = Path(__file__).parent.parent / "frontend"
+if FRONTEND_DIR.is_dir():
+    app.mount(
+        "/",
+        StaticFiles(directory=str(FRONTEND_DIR), html=True),
+        name="frontend",
+    )

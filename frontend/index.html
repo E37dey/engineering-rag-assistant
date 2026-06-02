@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Engineering RAG Assistant — answers grounded in indexed datasheets, with inline citations and out-of-corpus refusal." />
+  <title>Engineering RAG Assistant</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+  />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Engineering RAG</span>
+      </div>
+      <div
+        class="api-status"
+        id="apiStatus"
+        data-state="checking"
+        role="status"
+        aria-live="polite"
+      >
+        <span class="api-status-dot" aria-hidden="true"></span>
+        <span class="api-status-label">checking…</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main">
+    <section class="hero">
+      <h1 class="hero-title">Ask the corpus.</h1>
+      <p class="hero-subtitle">
+        Every answer is grounded in the indexed engineering datasheets, with
+        inline citations to the source page. Questions outside the corpus are
+        refused rather than guessed.
+      </p>
+    </section>
+
+    <form class="query-form" id="queryForm" autocomplete="off">
+      <div class="input-wrap">
+        <input
+          type="text"
+          id="questionInput"
+          class="question-input"
+          placeholder="How does the MAX232 generate negative voltage from a single +5V supply?"
+          aria-label="Question"
+          required
+        />
+        <div class="form-actions">
+          <label class="top-k">
+            <span>chunks</span>
+            <select id="topKSelect" aria-label="Number of chunks to retrieve">
+              <option value="3">3</option>
+              <option value="5" selected>5</option>
+              <option value="8">8</option>
+              <option value="10">10</option>
+            </select>
+          </label>
+          <button type="submit" class="ask-btn" id="askBtn">
+            <span class="btn-label">Ask</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <section
+      class="results"
+      id="results"
+      aria-live="polite"
+      aria-busy="false"
+      hidden
+    ></section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
