@@ -1,0 +1,10 @@
+anthropic
+qdrant-client
+fastapi
+uvicorn
+streamlit
+requests
+pypdf
+sentence-transformers
+python-dotenv
+pytest

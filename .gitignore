@@ -1,0 +1,23 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+
+# Virtual envs
+.venv/
+venv/
+
+# Local data (PDFs are large + may be confidential) — keep the folder
+# tracked via README so collaborators know where to drop documents.
+data/*
+!data/README.md
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/

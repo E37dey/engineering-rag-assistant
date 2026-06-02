@@ -1,0 +1,115 @@
+[
+  {
+    "id": "ne555_supply_voltage",
+    "question": "What is the typical supply voltage range of the NE555?",
+    "expected_answer_contains": ["5", "15"],
+    "expected_source": "NE555.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "ne555_purpose",
+    "question": "What is the NE555 used for?",
+    "expected_answer_contains": ["timing|timer"],
+    "expected_source": "NE555.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "ne555_ttl_compatible",
+    "question": "At a 5V supply, are the NE555 output levels compatible with TTL inputs?",
+    "expected_answer_contains": ["TTL", "compatible|yes"],
+    "expected_source": "NE555.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "max232_voltage_generation",
+    "question": "How does the MAX232 generate negative voltage from a single +5V supply?",
+    "expected_answer_contains": ["charge pump", "capacitor"],
+    "expected_source": "MAX232.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "max232_external_caps_count",
+    "question": "How many external capacitors does the MAX232 require?",
+    "expected_answer_contains": ["four|4"],
+    "expected_source": "MAX232.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "max232_standard",
+    "question": "What RS-232 standard does the MAX232 comply with?",
+    "expected_answer_contains": ["TIA/EIA-232|EIA-232|232-F"],
+    "expected_source": "MAX232.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "max232_function",
+    "question": "What is the basic function of the MAX232 chip?",
+    "expected_answer_contains": ["driver", "receiver"],
+    "expected_source": "MAX232.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "lm358_category",
+    "question": "What kind of device is the LM358?",
+    "expected_answer_contains": ["op|operational", "amp"],
+    "expected_source": "LM358.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "lm358_count",
+    "question": "How many operational amplifiers are in the LM358 package?",
+    "expected_answer_contains": ["two|dual|2"],
+    "expected_source": "LM358.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "lm358_single_supply",
+    "question": "Can the LM358 operate from a single power supply?",
+    "expected_answer_contains": ["single", "supply"],
+    "expected_source": "LM358.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "ina128_category",
+    "question": "What kind of amplifier is the INA128?",
+    "expected_answer_contains": ["instrumentation"],
+    "expected_source": "INA128.pdf",
+    "type": "in_corpus"
+  },
+  {
+    "id": "ina128_gain_setting",
+    "question": "How is the gain of the INA128 typically set?",
+    "expected_answer_contains": ["resistor|RG|R_G"],
+    "expected_source": "INA128.pdf",
+    "type": "in_corpus"
+  },
+
+  {
+    "id": "out_ne555_price",
+    "question": "What is the unit price of the NE555 chip in USD?",
+    "expected_answer_contains": [],
+    "expected_source": null,
+    "type": "out_of_corpus"
+  },
+  {
+    "id": "out_ne555_inventor",
+    "question": "Who invented the NE555 and in what year was it introduced?",
+    "expected_answer_contains": [],
+    "expected_source": null,
+    "type": "out_of_corpus"
+  },
+  {
+    "id": "out_lm358_market",
+    "question": "How many LM358 chips are sold worldwide each year?",
+    "expected_answer_contains": [],
+    "expected_source": null,
+    "type": "out_of_corpus"
+  },
+  {
+    "id": "out_max232_process",
+    "question": "What semiconductor process node is used to manufacture the MAX232?",
+    "expected_answer_contains": [],
+    "expected_source": null,
+    "type": "out_of_corpus"
+  }
+]
